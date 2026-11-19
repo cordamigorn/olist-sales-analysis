@@ -1,0 +1,20 @@
+-- =============================================================
+-- 02_load_data.psql
+-- Loads the Olist CSV files from C:/olist into the tables.
+-- Run in pgAdmin: right-click the "olist" database > PSQL Tool,
+-- then paste this whole file and press Enter.
+-- (\copy runs on your computer, so no folder-permission problems.)
+-- If your files are somewhere else, change C:/olist below.
+-- =============================================================
+
+\encoding UTF8
+
+\copy customers            FROM 'C:/olist/olist_customers_dataset.csv'          WITH (FORMAT csv, HEADER true)
+\copy geolocation          FROM 'C:/olist/olist_geolocation_dataset.csv'        WITH (FORMAT csv, HEADER true)
+\copy sellers              FROM 'C:/olist/olist_sellers_dataset.csv'            WITH (FORMAT csv, HEADER true)
+\copy products             FROM 'C:/olist/olist_products_dataset.csv'           WITH (FORMAT csv, HEADER true)
+\copy category_translation FROM 'C:/olist/product_category_name_translation.csv' WITH (FORMAT csv, HEADER true)
+\copy orders               FROM 'C:/olist/olist_orders_dataset.csv'             WITH (FORMAT csv, HEADER true)
+\copy order_items          FROM 'C:/olist/olist_order_items_dataset.csv'        WITH (FORMAT csv, HEADER true)
+\copy order_payments       FROM 'C:/olist/olist_order_payments_dataset.csv'     WITH (FORMAT csv, HEADER true)
+\copy order_reviews        FROM 'C:/olist/olist_order_reviews_dataset.csv'      WITH (FORMAT csv, HEADER true)

@@ -1,0 +1,4 @@
+# Raw data is not committed (download it from Kaggle)
+data/
+*.csv
+*.zip
