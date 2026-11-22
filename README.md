@@ -25,13 +25,9 @@ _Coming soon._
 
 ## Data model
 
-```
-customers ──< orders ──< order_items >── products ── category_translation
-                 │            │
-                 │            └──> sellers
-                 ├──< order_payments
-                 └──< order_reviews
-```
+![ER diagram](docs/erd.png)
+
+9 tables, ~1.55M rows. `orders` and `order_items` are the core transaction tables; `customers`, `products` and `sellers` describe who bought, what and from whom. `category_translation` and `geolocation` are lookups joined on category name and zip code (no foreign key).
 
 ## Repository structure
 
@@ -42,6 +38,8 @@ sql/
   03_constraints_and_checks.sql # foreign keys, indexes, row-count validation
   analysis/                     # one file per business question (coming soon)
 dashboard/                      # Power BI file and screenshots (coming soon)
+docs/erd.png                    # ER diagram
+practice/                       # SQL warm-up exercises
 ```
 
 ## How to reproduce
