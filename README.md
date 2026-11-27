@@ -21,7 +21,12 @@ An end-to-end analysis of **~100,000 real orders** from Olist, a Brazilian e-com
 
 ## Key insights
 
-_Coming soon._
+**Revenue definition:** item price + freight from delivered orders (`order_items`). Used consistently in every analysis.
+
+1. **Black Friday peak:** revenue peaked in November 2017, **+53.6% vs October**, then fell back in December. ([analysis 1](sql/analysis/01_monthly_revenue.sql))
+2. **Incomplete edge months:** Sep–Dec 2016 have only 1–265 delivered orders and November 2016 is missing, so trend comparisons start in January 2017.
+
+_More insights are added as each analysis is completed._
 
 ## Data model
 
@@ -36,7 +41,8 @@ sql/
   01_create_tables.sql          # table definitions (primary keys, data types)
   02_load_data.psql             # loads the 9 CSV files with \copy
   03_constraints_and_checks.sql # foreign keys, indexes, row-count validation
-  analysis/                     # one file per business question (coming soon)
+  analysis/                     # one file per business question
+    01_monthly_revenue.sql      # monthly revenue, MoM growth (CTE + LAG)
 dashboard/                      # Power BI file and screenshots (coming soon)
 docs/erd.png                    # ER diagram
 practice/                       # SQL warm-up exercises
